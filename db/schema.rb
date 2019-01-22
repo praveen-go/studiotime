@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_22_214956) do
+ActiveRecord::Schema.define(version: 2019_01_22_221917) do
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "studio_id"
+    t.integer "status", null: false
+    t.text "message"
+    t.string "card_holder_name", null: false
+    t.string "country", null: false
+    t.text "billing_address", null: false
+    t.string "postal_code", null: false
+    t.string "city", null: false
+    t.string "state"
+    t.string "card_number"
+    t.string "expiry_month"
+    t.string "expiry_year"
+    t.string "cvv"
+    t.float "sub_total", null: false
+    t.float "studiotime_fee", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["studio_id"], name: "index_bookings_on_studio_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
 
   create_table "images", force: :cascade do |t|
     t.string "url", null: false
@@ -19,6 +42,16 @@ ActiveRecord::Schema.define(version: 2019_01_22_214956) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
+  end
+
+  create_table "slots", force: :cascade do |t|
+    t.integer "booking_id"
+    t.date "date", null: false
+    t.time "from", null: false
+    t.time "to", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_slots_on_booking_id"
   end
 
   create_table "studio_types", force: :cascade do |t|
@@ -65,7 +98,7 @@ ActiveRecord::Schema.define(version: 2019_01_22_214956) do
     t.string "insta_handle", default: ""
     t.string "stream_url", default: ""
     t.string "email", null: false
-    t.string "password", null: false
+    t.string "password_digest", null: false
     t.string "mobile", default: ""
     t.boolean "email_verified", default: false
     t.boolean "mobile_verified", default: false

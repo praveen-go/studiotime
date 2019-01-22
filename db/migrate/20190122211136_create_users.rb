@@ -10,7 +10,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string  :insta_handle,    default: ''
       t.string  :stream_url,      default: ''
       t.string  :email,           null: false
-      t.string  :password,        null: false
+      t.string  :password_digest, null: false
       t.string  :mobile,          default: ''
       t.boolean :email_verified,  default: false
       t.boolean :mobile_verified, default: false
