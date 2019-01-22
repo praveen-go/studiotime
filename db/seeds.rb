@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+studio_types = [
+  'Rehearsal Space',
+  'Podcast Space',
+  'Home Studio',
+  'Mid-Level Studio',
+  'Top-Line Studio',
+]
+
+StudioType.create(studio_types.map{|type| { name: type }})
