@@ -5,6 +5,7 @@ class User < ApplicationRecord
   # Booking for studios belonging to user
   has_many :incoming_bookings, through: :studios, source: :bookings
   has_one :image, as: :imageable
+  has_many :verifications
 
   # For authentication
   has_secure_password

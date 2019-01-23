@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_22_221917) do
+ActiveRecord::Schema.define(version: 2019_01_22_235637) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id"
@@ -104,6 +104,16 @@ ActiveRecord::Schema.define(version: 2019_01_22_221917) do
     t.boolean "mobile_verified", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "verifications", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "token"
+    t.datetime "expires_at"
+    t.integer "kind"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_verifications_on_user_id"
   end
 
 end
