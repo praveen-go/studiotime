@@ -1,24 +1,27 @@
-# README
+# Studiotime
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setting Up for Development
 
-Things you may want to cover:
+1. Configure the Ruby version in `.ruby-version`. I've used 2.5.1 while developing.
 
-* Ruby version
+2. In a terminal window, go to the project root folder. Make sure the correct
+   Ruby and gemset are being used.
 
-* System dependencies
+   Then, do:
 
-* Configuration
+       $ gem install bundler
+       $ bundle install
 
-* Database creation
+1. The default setup uses sqlite database which is shipped by default by rails. To run migrations and feed the seed data:
 
-* Database initialization
+       $ rake db:migrate
+       $ rake db:seed
 
-* How to run the test suite
+    Optionally, you could do
 
-* Services (job queues, cache servers, search engines, etc.)
+       $ rake db:setup
 
-* Deployment instructions
+      to achieve the same in a single command
 
-* ...
+   `/db/seeds.rb` contains the seed data( studio types ) that is inserted into the database at 
+   this time.
