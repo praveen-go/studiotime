@@ -72,6 +72,8 @@ ActiveRecord::Schema.define(version: 2019_01_22_235637) do
     t.string "name", null: false
     t.text "description", null: false
     t.integer "min_booking_time", null: false
+    t.text "past_clients"
+    t.text "audio_samples"
     t.time "opening_time", null: false
     t.time "closing_time", null: false
     t.text "amenities", null: false
